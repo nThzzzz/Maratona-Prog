@@ -4,7 +4,6 @@
 using namespace std;
 
 int MMC(int a, int b);
-
 void simplifica(int numerador, int denominador);
 
 int main() {
@@ -54,7 +53,7 @@ int main() {
     return 0;
 }
 
-int MMC(int a, int b) { // Faz o minimo
+int MMC(int a, int b) { 
     while (b != 0) {
         int temp = b;
         b = a % b;
