@@ -5,7 +5,7 @@
 using namespace std;
 
 int verifica(vector<pair<int, int>>& visitados, int i, int j);
-void defefe(int matriz[7][7], vector<pair<int, int>>& visitados, int iorg, int jorg);
+void defefe(int matriz[5][5], vector<pair<int, int>>& visitados, int iorg, int jorg);
 
 int main(){
 
@@ -14,22 +14,13 @@ int main(){
 
     while (t--){
             
-        int Matriz_adj[7][7];
+        int Matriz_adj[5][5];
 
         vector<pair<int, int>> visitados;
 
-        for(int i=0; i<7; i++){
-            for(int j=0; j<7; j++){
-                if((i==0 || j==0 || j==5+1 || i==5+1)){
-                    Matriz_adj[i][j] == 1;
-                }
+        for(int i=0; i<5; i++){
+            for(int j=0; j<5; j++){
                 cin >> Matriz_adj[i][j];
-            }
-        }
-
-        for(int i=0; i<7; i++){
-            for(int j=0; j<7; j++){
-                cout << Matriz_adj[i][];
             }
         }
 
@@ -56,18 +47,16 @@ int verifica(vector<pair<int, int>>& visitados, int i, int j){
     return 0;
 }
 
-void defefe(int matriz[7][7], vector<pair<int, int>>& visitados, int iorg, int jorg){   
+void defefe(int matriz[5][5], vector<pair<int, int>>& visitados, int iorg, int jorg){   
     
     //                                   baixo    cima    esquerda  direita
     vector<pair<int, int>> movimentos = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
-    
-    int novo_i = iorg;
-    int novo_j = jorg;
 
     for(auto par : movimentos){
-        if(((iorg + par.first)>=0 && (iorg + par.first)<5) && ((jorg + par.first)>=0 && (jorg + par.first)<5) && matriz[iorg][jorg] == 0){
-            novo_i = iorg + par.first;
-            novo_j = jorg + par.second;
+        int novo_i = iorg + par.first;
+        int novo_j = jorg + par.second;
+
+        if(((novo_i)>=0 && (novo_i)<5) && ((novo_j)>=0 && (novo_j)<5) && matriz[iorg][jorg] == 0){
             if(matriz[novo_i][novo_j]==0){
                 if(verifica(visitados, novo_i, novo_j)==0){  
                     visitados.push_back(make_pair(novo_i, novo_j));
@@ -80,7 +69,7 @@ void defefe(int matriz[7][7], vector<pair<int, int>>& visitados, int iorg, int j
 
 
 // copiar os casos num arquivo a parte e depois da no git bash
-// cd Lista\ 7\ -\ Grafos\
+// cd Lista\ 5\ -\ Grafos\
 //./exe20.exe < inEx20
 // executa
 
